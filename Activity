@@ -85,6 +85,24 @@ public class Cadastro extends AppCompatActivity {
                 if (task.isSuccessful()){
                     Toast.makeText(Cadastro.this, "Suceeso ao cadastrar usuario", Toast.LENGTH_LONG).show();// caso o cadastro de certo - case the register is successful
                 }else {
+                
+                    String excecao = ""; // foi criado uma string vazia, abaixo vai ver se algumas das opcoes estao corretas - an empty string was created, below you will see if some of the options are correct
+                    try {
+                        throw task.getException();
+
+                    } catch (FirebaseAuthWeakPasswordException e) { // caso a senha seja fraca ira aparecer a menssagem para digitar uma mais forte -if the password is weak the message will appear to type a stronger one
+                        excecao = "Digite uma senha mais forte!";
+
+                    } catch (FirebaseAuthInvalidCredentialsException e) { // caso o email nao esteja no formato correto ira a parecer a mensagem para digitar o email valido - if the email is not in the correct format it will look like the message to enter the valid email 
+                        excecao = "Digite um email valido";
+
+                    } catch (FirebaseAuthUserCollisionException e) { // caso o email ja exista no banco de dados seja exibida a menssagem que ja foi cadastrado - if the email already exists in the database, the message that has already been registered is displayed
+                        excecao = "Essa conta ja foi cadastrada";
+
+                    } catch (Exception e) {
+                        excecao = "Erro ao cadastrar usuario: " + e.getMessage();
+                        e.printStackTrace();
+                    
                     Toast.makeText(Cadastro.this, "Erro ao cadastrar Usuario!", Toast.LENGTH_LONG).show();//caso o cadastro de errado - case the register is unsuccessful
                 }
             }
