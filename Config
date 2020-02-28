@@ -1,0 +1,18 @@
+package br.com.michel.android.organizzeclone.config;
+
+        import com.google.firebase.auth.FirebaseAuth;
+
+public class ConfiguracaoFirebase {
+
+    private static FirebaseAuth autenticacao;
+
+    //metodo que retorna a instacia do Firebaseauth
+    public static FirebaseAuth getFirebaseAutenticacao(){
+        if (autenticacao == null){
+            autenticacao = FirebaseAuth.getInstance();
+        }
+        return autenticacao;
+
+
+    }
+}
