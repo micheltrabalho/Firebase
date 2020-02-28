@@ -57,18 +57,18 @@ public class Cadastro extends AppCompatActivity {
 
                         }
                         else {
-                            Toast.makeText(Cadastro.this, "Preencha a Senha", Toast.LENGTH_LONG).show();
+                            Toast.makeText(Cadastro.this, "Preencha a Senha", Toast.LENGTH_LONG).show();//caso nao tenha o senha preenchido - case the field password is empty
                         }
 
                     }
                     else {
-                        Toast.makeText(Cadastro.this, "Preencha o E-mail", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Cadastro.this, "Preencha o E-mail", Toast.LENGTH_LONG).show();//caso nao tenha o email preenchido - case the field email is empty
                     }
 
 
                 }
                 else {
-                    Toast.makeText(Cadastro.this, "Preencha o nome!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Cadastro.this, "Preencha o nome!", Toast.LENGTH_LONG).show();//caso nao tenha o nome preenchido - case the field name is empty
                 }
             }
         });
@@ -83,9 +83,9 @@ public class Cadastro extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
-                    Toast.makeText(Cadastro.this, "Suceeso ao cadastrar usuario", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Cadastro.this, "Suceeso ao cadastrar usuario", Toast.LENGTH_LONG).show();// caso o cadastro de certo - case the register is successful
                 }else {
-                    Toast.makeText(Cadastro.this, "Erro ao cadastrar Usuario!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Cadastro.this, "Erro ao cadastrar Usuario!", Toast.LENGTH_LONG).show();//caso o cadastro de errado - case the register is unsuccessful
                 }
             }
         });
