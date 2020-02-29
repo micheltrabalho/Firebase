@@ -83,7 +83,9 @@ public class Cadastro extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
-                    Toast.makeText(Cadastro.this, "Suceeso ao cadastrar usuario", Toast.LENGTH_LONG).show();// caso o cadastro de certo - case the register is successful
+                    
+                    finish();// quando o usuario for cadastrado ira fechar essa activity - when the user is registered it will close this activity
+                    
                 }else {
                 
                     String excecao = ""; // foi criado uma string vazia, abaixo vai ver se algumas das opcoes estao corretas - an empty string was created, below you will see if some of the options are correct
@@ -103,7 +105,7 @@ public class Cadastro extends AppCompatActivity {
                         excecao = "Erro ao cadastrar usuario: " + e.getMessage();
                         e.printStackTrace();
                     
-                    Toast.makeText(Cadastro.this, "Erro ao cadastrar Usuario!", Toast.LENGTH_LONG).show();//caso o cadastro de errado - case the register is unsuccessful
+                    Toast.makeText(Cadastro.this, excecao, Toast.LENGTH_LONG).show();//caso o cadastro de errado - case the register is unsuccessful
                 }
             }
         });
